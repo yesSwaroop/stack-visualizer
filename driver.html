@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <link rel="stylesheet" type="text/css" href="this.css">
+    <header>
+        <div id = "head">
+            <img id="logo" src="logo.png"/>
+            <t id="title">STACK VISUALIZER</t>
+        </div>
+    </header>
+    <br><br>
+    <body>
+    <div id="main">
+        <span id="control">
+            <t class="sh">STACK HEIGHT :</t>
+            <br>
+            <form id="hinit">
+            <input id="hdec" class="hb" type="button" value="-"/>
+            <t id="hv">1</t>
+            <input id="hinc" class="hb" type="button" value="+"/>
+            </form>
+            <input id="seth" class="hib" type="button" value="INITIALIZE"/>
+            <br><br><br>
+            <t class="sh">MODIFICATIONS :</t>
+            <br>
+            <form id="ops">
+                <input id="pushb" class="ppb" type="button" value="PUSH"/>
+                <input id="ppm" class="ppb" type="button" value="POP"/>
+            </form>
+            <br><br>
+            <t class="sh">QUERIES :</t>
+            <br><input id="iEb" class="qb" type="button" value="isEmpty"/>
+            <input id="iFb" class="qb" type="button" value="isFull"/>
+            <br><input id="pkb" class="qb" type="button" value="PEEK"/>
+            <input id="rb" class="qb" type="button" value="RESET"/>
+        </span>
+        <span id="out">
+            <svg id = "l1" height="30px" width="200px" class="gen"><rect id="r1" class="empty"/></svg>
+            <svg id = "l2" height="30px" width="200px" class="gen"><rect id="r2" class="empty"/></svg>
+            <svg id = "l3" height="30px" width="200px" class="gen"><rect id="r3" class="empty"/></svg>
+            <svg id = "l4" height="30px" width="200px" class="gen"><rect id="r4" class="empty"/></svg>
+            <svg id = "l5" height="30px" width="200px" class="gen"><rect id="r5" class="empty"/></svg>
+            <svg id = "l6" height="30px" width="200px" class="gen"><rect id="r6" class="empty"/></svg>
+            <svg id = "l7" height="30px" width="200px" class="gen"><rect id="r7" class="empty"/></svg>
+            <svg id = "l8" height="30px" width="200px" class="gen"><rect id="r8" class="empty"/></svg>
+            <svg id = "l9" height="30px" width="200px" class="gen"><rect id="r9" class="empty"/></svg>
+            <svg id = "l10" height="30px" width="200px" class="gen"><rect id="r10" class="empty"/></svg>
+            <svg id = "fltr" height="30px" width="200px" class="genf"><rect id="r11" class="full"/></svg>
+            <span id="pop" class="msg"></span>
+        </span>
+    </div>
+    </body>
+    <br><br>
+    <footer>
+        <div id="foot">
+            
+        </div>
+    </footer>
+    <script src="this.js"></script>
+</html>

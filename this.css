@@ -231,6 +231,7 @@ body {
     align-items: center;
     font-size: 24px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
     color: rgb(133, 13, 13);
     bottom: 15px;
     right: 30px;
@@ -250,6 +251,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    font-style: italic;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(0, 83, 83);
     bottom: 15px;
@@ -264,11 +266,20 @@ body {
     visibility: hidden;
 }
 
-
+#peek{
+    position: absolute;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24px;
+    color: rgb(43, 42, 42);
+    background-color: transparent;
+    visibility: hidden;
+    left: 30%;
+}
 
 
 #foot {
     display: flex;
+    position: relative;
     border-radius: 50px;
     background-color: rgb(0, 132, 255);
     height: 100px;
@@ -276,6 +287,43 @@ body {
     margin-left: 5vw;
 }
 
+#lrnm{
+    display: flex;
+    position: absolute;
+    font-family: "Concert One","Verdana";
+    font-weight: 100;
+    color:rgba(251, 255, 14, 0.993);
+    left:8%;
+    top: 10%;
+    text-decoration: none;
+    font-size: 64px;
+}
+
+#lrnm:hover{
+    color: rgba(188, 190, 13, 0.993);
+    text-shadow: 5px;
+}
+
+#like{
+    position: absolute;
+    opacity: .8;
+    top: 10%;
+    height: 80px;
+    right: 16%;
+}
+#like:hover{
+    opacity: 1;
+}
+#dlike{
+    position: absolute;
+    opacity: .8;
+    top: 10%;
+    height: 80px;
+    right: 8%;
+}
+#dlike:hover{
+    opacity: 1;
+}
 @media screen and (max-width:1110px) {
     :not(body) {
         visibility: hidden;

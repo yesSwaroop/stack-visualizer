@@ -52,6 +52,7 @@ seth.addEventListener("click",()=>{
 //Create empty stack:
 var out = document.getElementById("out");
 var bottom = 15;
+var peekbtm;
 
 function buildstack(height){
     for(let i=1;i<=height;i++){
@@ -89,6 +90,7 @@ function push(){
     }
     setTimeout(()=>{
         rec[firstEmpty].classList = "full";
+        pkbupdate(firstEmpty);
         firstEmpty+=1;
         bactive = false;
     },(level-firstEmpty+1)*500);
@@ -112,6 +114,8 @@ function pop(){
         rec[i] = document.getElementById(`r${i}`);
     }
     rec[firstEmpty].classList = "empty";
+    if(firstEmpty!=1)
+        pkbupdate(firstEmpty-1);
     for(let i=firstEmpty+1;i<=MAX_HEIGHT;i++){
         setTimeout(()=>{rec[i].classList = "full";},time);
         time+=250;
@@ -141,7 +145,6 @@ iEb.addEventListener("click",()=>{
             popup("msg","isEmpty : true");
         else    
             popup("msg","isEmpty : false");
-        bactive = false;
     }
 });
 
@@ -154,18 +157,90 @@ iFb.addEventListener("click",()=>{
             popup("msg","isFull : true");
         else    
             popup("msg","isFull : false");
-        bactive = false;
     }
 });
 
 //Popup:
 function popup(cls,data){
+    bactive = true;
     let pop = document.getElementById("pop");
     pop.innerHTML = data;
     pop.classList = cls;
     pop.style.visibility = "visible";
-    setTimeout(()=>{pop.style.visibility = "hidden";},800);
+    setTimeout(()=>{pop.style.visibility = "hidden";bactive=false;},800);
 }
+
+//Peek:
+var peek = document.getElementById("peek");
+var pkb = document.getElementById("pkb");
+function pkbupdate(n){
+    var ln = document.getElementById(`l${n}`);
+    peekbtm = ln.style.bottom;
+}
+pkb.addEventListener("click",()=>{
+    if(!bactive){
+        bactive = true;
+        if(firstEmpty==1){
+            popup("warn","Stack is Empty!!");
+        }else{
+        peek.style.bottom = peekbtm;
+            peek.style.visibility = 'visible';
+        setTimeout(()=>{
+            peek.style.visibility = 'hidden';
+            bactive = false;
+        },800);}
+    }
+});
+ 
+//Like / Dislike:
+var like = document.getElementById("like");
+var dlike = document.getElementById("dlike");
+if(localStorage.getItem("like")==null){
+    localStorage.setItem("like","0");
+}
+if(localStorage.getItem("dislike")==null){
+    localStorage.setItem("dislike","0");
+}
+var liked = false, dliked = false;
+like.addEventListener("click",()=>{
+    if(!dliked){
+        like.style.opacity="1";
+        let c = parseInt(localStorage.getItem("like"));
+        if(!liked)
+            localStorage.setItem("like",`${c+1}`);
+    }
+    else{
+        like.style.opacity="1";
+        dlike.style.opacity=".8";
+        let c = parseInt(localStorage.getItem("like"));
+        if(!liked){
+            localStorage.setItem("like",`${c+1}`);
+            c = parseInt(localStorage.getItem("dislike"));
+            localStorage.setItem("dislike",`${c-1}`);}
+    }
+    liked = true;
+    dliked = false;
+});
+dlike.addEventListener("click",()=>{
+    if(!liked){
+        dlike.style.opacity="1";
+        let c = parseInt(localStorage.getItem("dislike"));
+        if(!dliked)
+            localStorage.setItem("dislike",`${c+1}`);
+    }
+    else{
+        dlike.style.opacity="1";
+        like.style.opacity=".8";
+        if(!dliked){
+        let c = parseInt(localStorage.getItem("dislike"));
+        localStorage.setItem("dislike",`${c+1}`);
+        c = parseInt(localStorage.getItem("like"));
+        localStorage.setItem("like",`${c-1}`);}
+    }
+    dliked = true;
+    liked = false;
+});
+
 
 //Reset:
 var rb = document.getElementById("rb");

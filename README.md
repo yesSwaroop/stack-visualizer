@@ -1,2 +1,2 @@
 # stack-visualizer
-www.stack-visualiser.herokuapp.com
+http://stack-visualiser.herokuapp.com

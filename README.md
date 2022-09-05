@@ -1,2 +1,2 @@
 # stack-visualizer
-https://stack-visualiser.herokuapp.com
+https://yesswaroop.github.io/stack-visualizer/
